@@ -1,0 +1,49 @@
+# Copyright (C) 2025 Gemini
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress SEO Check Plugin 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-seo-check\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-11T04:25:39+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-seo-check\n"
+
+#. Plugin Name of the plugin
+#: plugin-seo-check.php
+msgid "WordPress SEO Check Plugin"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: plugin-seo-check.php
+msgid "https://example.com/plugins/the-basics/"
+msgstr ""
+
+#. Description of the plugin
+#: plugin-seo-check.php
+msgid "Checks SEO elements and site performance for each post/page."
+msgstr ""
+
+#. Author of the plugin
+#: plugin-seo-check.php
+msgid "Gemini"
+msgstr ""
+
+#. Author URI of the plugin
+#: plugin-seo-check.php
+msgid "https://gemini.google.com/"
+msgstr ""
+
+#: src/Admin/Page_Controller.php:16
+#: src/Admin/Page_Controller.php:17
+msgid "SEO Audit"
+msgstr ""
+
+#: src/Controller/Editor_Controller.php:16
+msgid "SEO Check"
+msgstr ""

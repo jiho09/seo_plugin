@@ -1,0 +1,26 @@
+{
+    "redefinable-internals": [
+        "defined",
+        "current_user_can",
+        "get_permalink",
+        "get_post_status",
+        "wp_remote_get",
+        "is_wp_error",
+        "wp_remote_retrieve_body",
+        "update_post_meta",
+        "get_posts",
+        "get_post",
+        "wp_json_encode",
+        "wp_create_nonce",
+        "plugins_url",
+        "wp_enqueue_script",
+        "wp_localize_script",
+        "add_action",
+        "add_meta_box",
+        "get_the_ID",
+        "esc_attr",
+        "__",
+        "url_to_postid",
+        "current_time"
+    ]
+}
