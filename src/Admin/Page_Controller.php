@@ -21,6 +21,15 @@ class Page_Controller {
             'dashicons-analytics',
             20
         );
+
+        add_submenu_page(
+            $this->page_slug,
+            __( 'Settings', 'wp-seo-check' ),
+            __( 'Settings', 'wp-seo-check' ),
+            'manage_options',
+            'seo-audit-settings',
+            [ $this, 'render_settings_page' ]
+        );
     }
 
     /**
@@ -32,8 +41,13 @@ class Page_Controller {
         echo '<div id="root"></div>';
     }
 
+    public function render_settings_page() {
+        $settings_controller = new Settings_Controller();
+        $settings_controller->render_settings_page();
+    }
+
     public function enqueue_scripts( $hook ) {
-        if ( 'toplevel_page_' . $this->page_slug !== $hook ) {
+        if ( 'toplevel_page_' . $this->page_slug !== $hook && 'seo-audit_page_seo-audit-settings' !== $hook ) {
             return;
         }
 

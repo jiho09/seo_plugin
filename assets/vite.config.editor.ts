@@ -15,12 +15,15 @@ export default defineConfig({
       fileName: () => 'editor.js'
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@wordpress/api-fetch'],
+      external: ['react', 'react-dom', '@wordpress/api-fetch', '@wordpress/element', '@wordpress/components', '@wordpress/i18n'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
           '@wordpress/api-fetch': 'wp.apiFetch',
+          '@wordpress/element': 'wp.element',
+          '@wordpress/components': 'wp.components',
+          '@wordpress/i18n': 'wp.i18n',
         },
       }
     }

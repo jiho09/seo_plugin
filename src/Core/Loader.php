@@ -3,6 +3,7 @@
 namespace Plugin_SEO_Check\Core;
 
 use Plugin_SEO_Check\Admin\Page_Controller;
+use Plugin_SEO_Check\Admin\Settings_Controller;
 use Plugin_SEO_Check\Controller\Api_Controller;
 use Plugin_SEO_Check\Controller\Post_Save_Controller;
 use Plugin_SEO_Check\Controller\Public_Controller;
@@ -20,6 +21,7 @@ class Loader {
 
     private function define_admin_hooks() {
         new Page_Controller();
+        new Settings_Controller();
     }
 
     private function define_post_hooks() {

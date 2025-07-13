@@ -4,6 +4,7 @@ namespace Plugin_SEO_Check\Controller;
 
 use Plugin_SEO_Check\Repository\ResultRepo;
 use Plugin_SEO_Check\Repository\Performance_Metrics_Repo;
+use Plugin_SEO_Check\Core\Logger;
 
 class Api_Controller {
 
@@ -110,23 +111,29 @@ class Api_Controller {
         $post = get_post( $post_id );
 
         if ( ! $post ) {
-            return new \WP_REST_Response( [ 'error' => 'Post not found' ], 404 );
+            return new \WP_REST_Response( [ 'error' => __( 'Post not found', 'wp-seo-check' ) ], 404 );
         }
 
-        // Placeholder for Gemini API Key. In a real scenario, this would come from settings.
-        $gemini_api_key = defined( 'WP_SEO_CHECK_GEMINI_API_KEY' ) ? WP_SEO_CHECK_GEMINI_API_KEY : '';
-
-        if ( empty( $gemini_api_key ) ) {
-            return new \WP_REST_Response( [ 'error' => 'Gemini API Key not configured.' ], 400 );
+        if ( ! \Plugin_SEO_Check\Service\Gemini_Service::is_api_key_configured() ) {
+            return new \WP_REST_Response( [ 
+                'error' => __( 'Gemini API key is not configured. Please set it in the plugin settings.', 'wp-seo-check' ) 
+            ], 400 );
         }
 
-        $gemini_service = new \Plugin_SEO_Check\Service\Gemini_Service( $gemini_api_key );
-        $suggestions = $gemini_service->generate_meta_tags( $post->post_title, $post->post_content );
+        try {
+            $gemini_service = new \Plugin_SEO_Check\Service\Gemini_Service();
+            $suggestions = $gemini_service->generate_meta_tags( $post->post_title, $post->post_content );
 
-        if ( is_wp_error( $suggestions ) ) {
-            return new \WP_REST_Response( [ 'error' => $suggestions->get_error_message() ], 500 );
+            if ( is_wp_error( $suggestions ) ) {
+                return new \WP_REST_Response( [ 'error' => $suggestions->get_error_message() ], 500 );
+            }
+
+            return new \WP_REST_Response( $suggestions, 200 );
+        } catch ( \Exception $e ) {
+            Logger::log_api_error( 'generate-meta-tags', $e->getMessage(), 500 );
+            return new \WP_REST_Response( [ 
+                'error' => __( 'An error occurred while generating meta tags. Please try again.', 'wp-seo-check' ) 
+            ], 500 );
         }
-
-        return new \WP_REST_Response( $suggestions, 200 );
     }
 }

@@ -5,7 +5,7 @@ Tags: seo, performance, audit, core web vitals, gutenberg, classic editor
 Requires at least: 6.2
 Tested up to: 6.5
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,7 +29,15 @@ Key Features:
 1.  Upload the `wp-seo-check` folder to the `/wp-content/plugins/` directory.
 2.  Activate the plugin through the 'Plugins' menu in WordPress.
 3.  Navigate to the 'SEO Audit' menu item in your WordPress admin sidebar to view the dashboard.
-4.  For AI-powered features, define `WP_SEO_CHECK_GEMINI_API_KEY` in your `wp-config.php` file.
+4.  For AI-powered features, configure your Gemini API key in the plugin settings (SEO Audit > Settings) or define `WP_SEO_CHECK_GEMINI_API_KEY` in your `wp-config.php` file.
+
+== Configuration ==
+
+**Gemini API Key Setup:**
+- Go to SEO Audit > Settings in your WordPress admin
+- Enter your Gemini API key in the provided field
+- The API key will be securely stored in the WordPress options table
+- Alternatively, you can define `WP_SEO_CHECK_GEMINI_API_KEY` in your `wp-config.php` file for enhanced security
 
 == Frequently Asked Questions ==
 
