@@ -51,10 +51,14 @@ class Page_Controller {
             return;
         }
 
+        // WordPress에서 React를 로드
+        wp_enqueue_script( 'react' );
+        wp_enqueue_script( 'react-dom' );
+
         wp_enqueue_script(
             'wp-seo-check-admin-main',
             plugins_url( 'dist/main.js', WPSEOCHK_PLUGIN_FILE ),
-            [ 'wp-element', 'wp-components', 'wp-api-fetch', 'wp-i18n' ], // Added dependencies
+            [ 'wp-element', 'wp-components', 'wp-api-fetch', 'wp-i18n', 'react', 'react-dom' ], // Added dependencies
             null, // Version
             true // In footer
         );

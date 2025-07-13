@@ -15,7 +15,7 @@ export default defineConfig({
       fileName: () => 'main.js'
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@wordpress/api-fetch', '@wordpress/element', '@wordpress/components', '@wordpress/i18n'],
+      external: ['react', 'react-dom', '@wordpress/api-fetch', '@wordpress/element', '@wordpress/components', '@wordpress/i18n', 'react-router-dom'],
       output: {
         globals: {
           react: 'React',
@@ -24,6 +24,7 @@ export default defineConfig({
           '@wordpress/element': 'wp.element',
           '@wordpress/components': 'wp.components',
           '@wordpress/i18n': 'wp.i18n',
+          'react-router-dom': 'ReactRouterDOM',
         },
       }
     }
