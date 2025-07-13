@@ -23,12 +23,13 @@ class Page_Controller {
         );
     }
 
+    /**
+     * Render the plugin's main admin page.
+     *
+     * Outputs the container element for the React UI.
+     */
     public function render_main_page() {
-        error_log('render_main_page fired');
-        echo '<div class="notice notice-success"><p>CALLBACK HIT!</p></div>';
-        echo '++++';
         echo '<div id="root"></div>';
-        echo '++++';
     }
 
     public function enqueue_scripts( $hook ) {
